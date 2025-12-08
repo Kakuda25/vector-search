@@ -1,6 +1,10 @@
 # 環境変数ファイル（機密情報を含む）
-# .env
-order/
+.env
+.env.local
+.env.*.local
+
+# プロジェクト管理（オプション：含めたい場合はコメントアウト）
+# order/
 
 # データディレクトリ
 postgres_data/
