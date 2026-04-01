@@ -6,7 +6,7 @@ services:
     
     # 環境変数（.envファイルから読み込み）
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-dentalDB}
+      POSTGRES_DB: ${POSTGRES_DB:-vectordb}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGDATA: /var/lib/postgresql/data/pgdata

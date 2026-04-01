@@ -9,7 +9,7 @@
 必要な環境変数:
     - POSTGRES_HOST: PostgreSQLホスト（デフォルト: localhost）
     - POSTGRES_PORT: PostgreSQLポート（デフォルト: 5432）
-    - POSTGRES_DB: データベース名（デフォルト: dentaldb）
+    - POSTGRES_DB: データベース名（デフォルト: vectordb）
     - POSTGRES_USER: ユーザー名（デフォルト: postgres）
     - POSTGRES_PASSWORD: パスワード
 

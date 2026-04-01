@@ -32,7 +32,7 @@ def average_pool(last_hidden_states: Tensor, attention_mask: Tensor) -> Tensor:
 # - 商品説明など: "passage: "を使用
 input_texts = [
     'query: ハンドピース',
-    'query: 歯科用の切削器具',
+    'query: ワイヤレスイヤホン',
     "passage: ハンドピース 標準型 高回転・低振動の標準ハンドピース。日常的な切削に最適。",
     "passage: エアータービン 高速型 最高回転数40万回転の高速エアータービン。精密な切削が可能。",
     "passage: コンポジットレジン A2 審美性の高いコンポジットレジン。A2色。"
@@ -61,7 +61,7 @@ print("\nクエリ1「ハンドピース」と商品の類似度:")
 for i, score in enumerate(scores[0]):
     print(f"  商品{i+1}: {score:.2f}")
 
-print("\nクエリ2「歯科用の切削器具」と商品の類似度:")
+print("\nクエリ2「ワイヤレスイヤホン」と商品の類似度:")
 for i, score in enumerate(scores[1]):
     print(f"  商品{i+1}: {score:.2f}")
 
@@ -76,7 +76,7 @@ model_st = SentenceTransformer('intfloat/multilingual-e5-large')
 # プレフィックスを付けてベクトル化
 query_texts = [
     'query: ハンドピース',
-    'query: 歯科用の切削器具'
+    'query: ワイヤレスイヤホン'
 ]
 
 product_texts = [
@@ -98,7 +98,7 @@ print("\nクエリ1「ハンドピース」と商品の類似度:")
 for i, similarity in enumerate(similarities[0]):
     print(f"  商品{i+1}: {similarity:.4f}")
 
-print("\nクエリ2「歯科用の切削器具」と商品の類似度:")
+print("\nクエリ2「ワイヤレスイヤホン」と商品の類似度:")
 for i, similarity in enumerate(similarities[1]):
     print(f"  商品{i+1}: {similarity:.4f}")
 
@@ -148,7 +148,7 @@ products = [
 ]
 
 # 検索クエリ
-query = "歯科用の切削器具"
+query = "ワイヤレスイヤホン"
 
 print(f"\n検索クエリ: 「{query}」")
 print("\n検索結果（上位3件）:")

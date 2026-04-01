@@ -53,7 +53,7 @@ def get_db_config() -> dict:
     return {
         'host': os.getenv("POSTGRES_HOST", "localhost"),
         'port': int(os.getenv("POSTGRES_PORT", "5432")),
-        'database': os.getenv("POSTGRES_DB", "dentaldb"),
+        'database': os.getenv("POSTGRES_DB", "vectordb"),
         'user': os.getenv("POSTGRES_USER", "postgres"),
         'password': os.getenv("POSTGRES_PASSWORD")
     }

@@ -69,7 +69,7 @@
     ├─ env.template を .env にコピー
     │
     └─ .env ファイルを編集
-        ├─ POSTGRES_DB=dentaldb
+        ├─ POSTGRES_DB=vectordb
         ├─ POSTGRES_USER=postgres
         ├─ POSTGRES_PASSWORD=your_password
         └─ その他の設定
@@ -104,7 +104,7 @@
 【ステップ4: 動作確認】
     │
     ├─ データベース接続確認
-    │   └─ docker exec -it postgres_db psql -U postgres -d dentaldb
+    │   └─ docker exec -it postgres_db psql -U postgres -d vectordb
     │
     └─ サンプルデータ確認
         └─ SELECT COUNT(*) FROM products;
@@ -165,7 +165,7 @@
 【実行例】
     │
     └─ 出力例:
-        ├─ データベースに接続しました: dentaldb
+        ├─ データベースに接続しました: vectordb
         ├─ モデルを読み込み中: intfloat/multilingual-e5-large...
         ├─ （初回のみ時間がかかります）
         ├─ 42件の商品データにベクトルを生成します...
@@ -231,7 +231,7 @@
 【実行例】
     │
     └─ 出力例:
-        ├─ データベースに接続しました: dentaldb
+        ├─ データベースに接続しました: vectordb
         ├─ モデルを読み込み中: intfloat/multilingual-e5-large...
         ├─ （初回のみ時間がかかります）
         ├─ 検索中: 42件の商品から類似商品を検索...
@@ -352,7 +352,7 @@
     │   └─ .envファイルのPOSTGRES_PASSWORDを確認
     │
     └─ 4. 接続テスト
-        └─ docker exec -it postgres_db psql -U postgres -d dentaldb
+        └─ docker exec -it postgres_db psql -U postgres -d vectordb
 
 【問題: ベクトル生成が失敗する】
     │

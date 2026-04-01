@@ -205,7 +205,7 @@ def main():
   python app/scripts/search-similar-products.py --compare-products --product-id 1
   
   # 最小類似度を指定
-  python app/scripts/search-similar-products.py "歯科用器具" --min-similarity 0.7
+  python app/scripts/search-similar-products.py "ワイヤレスイヤホン" --min-similarity 0.7
         """
     )
     parser.add_argument("query", nargs="?", help="検索クエリテキスト")
