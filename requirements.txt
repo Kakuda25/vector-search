@@ -1,5 +1,7 @@
 # PostgreSQL接続用
 psycopg2-binary>=2.9.0
+fastapi>=0.115.0
+uvicorn>=0.30.0
 
 # Sentence Transformers用（intfloat/multilingual-e5-large使用）
 sentence-transformers>=2.2.0

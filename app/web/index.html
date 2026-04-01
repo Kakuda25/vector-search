@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Search 管理画面</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Vector Search 管理画面</h1>
+  </header>
+  <nav class="route-nav">
+    <a href="#/dashboard" data-route-link>ダッシュボード</a>
+    <a href="#/products" data-route-link>商品管理</a>
+    <a href="#/search" data-route-link>類似検索</a>
+    <a href="#/operations" data-route-link>Embedding運用</a>
+  </nav>
+  <main class="container">
+    <section class="panel route-view" data-route-view="dashboard">
+      <h2>ダッシュボード</h2>
+      <div id="summary" class="kpi-grid"></div>
+      <div id="health" class="state">読込中...</div>
+    </section>
+
+    <section class="panel route-view" data-route-view="products">
+      <h2>商品管理</h2>
+      <div class="row">
+        <input id="productQuery" placeholder="商品名/コードで検索">
+        <select id="embeddingStatus">
+          <option value="">全件</option>
+          <option value="embedded">生成済み</option>
+          <option value="missing">未生成</option>
+        </select>
+        <button id="loadProductsBtn">再読込</button>
+      </div>
+      <div id="productsState" class="state"></div>
+      <table id="productsTable">
+        <thead>
+          <tr><th>ID</th><th>コード</th><th>商品名</th><th>カテゴリ</th><th>価格</th><th>Embedding</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="panel route-view" data-route-view="search">
+      <h2>類似検索</h2>
+      <div class="row">
+        <select id="queryType">
+          <option value="text">自由テキスト</option>
+          <option value="product">商品ID</option>
+        </select>
+        <input id="queryValue" placeholder="ハンドピース / 1">
+        <input id="topK" type="number" min="1" max="50" value="10">
+        <input id="threshold" type="number" min="-1" max="1" step="0.01" value="0">
+        <button id="runSearchBtn">検索</button>
+      </div>
+      <div id="searchState" class="state"></div>
+      <table id="searchTable">
+        <thead>
+          <tr><th>順位</th><th>スコア</th><th>コード</th><th>商品名</th><th>カテゴリ</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="panel route-view" data-route-view="operations">
+      <h2>Embedding運用</h2>
+      <div class="row">
+        <select id="jobMode">
+          <option value="missing">未生成のみ</option>
+          <option value="all">全件</option>
+        </select>
+        <button id="startJobBtn">生成開始</button>
+      </div>
+      <div id="jobState" class="state"></div>
+    </section>
+  </main>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

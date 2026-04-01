@@ -112,10 +112,10 @@ def update_embeddings_in_db(connection, model_name: str = "intfloat/multilingual
                 """, (embedding_str, VECTOR_DIMENSION, product_id))
                 
                 updated_count += 1
-                print(f"✓ {product_code}: {name[:30]}...")
+                print(f"[OK] {product_code}: {name[:30]}...")
                 
             except Exception as e:
-                print(f"✗ エラー ({product_code}): {str(e)}")
+                print(f"[NG] エラー ({product_code}): {str(e)}")
                 connection.rollback()
                 continue
         
