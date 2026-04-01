@@ -16,6 +16,7 @@ PostgreSQL/
 │   ├── scripts/                    # 環境構築用スクリプト
 │   │   ├── setup-venv.ps1         # 仮想環境セットアップ（Windows）
 │   │   ├── setup-venv.sh          # 仮想環境セットアップ（Linux/Mac）
+│   │   ├── align-postgres-password-with-env.ps1  # .env と DB の postgres パスワードを揃える（Windows）
 │   │   ├── setup.sh                # セットアップスクリプト
 │   │   ├── load-env.ps1           # 環境変数読み込み
 │   │   └── run-example.ps1        # 対話型実行メニュー

@@ -1088,6 +1088,32 @@ docker exec -it postgres_db psql -U postgres
 docker exec postgres_db pg_isready -U postgres
 ```
 
+### ホスト（Python/pgAdmin）から `password authentication failed` になる
+
+既存の `postgres_data` ボリュームがある場合、データディレクトリ作成時に設定された `postgres` ユーザのパスワードが、現在の `.env` の `POSTGRES_PASSWORD` と一致しないことがあります。コンテナ内の `psql` は `trust` などでパスワードなしでも通ることがあり、気づきにくいです。
+
+**対処（推奨）:** プロジェクトルートで PowerShell を開き、次を実行します。
+
+```powershell
+.\setup\scripts\align-postgres-password-with-env.ps1
+```
+
+**手動で揃える例:**
+
+```bash
+docker exec postgres_db psql -U postgres -d postgres -c "ALTER USER postgres WITH PASSWORD 'your_password_here';"
+```
+
+（`your_password_here` は `.env` の `POSTGRES_PASSWORD` と同じ値にしてください。）
+
+### コンテナ名 `postgres_db` が既に使われている
+
+別の Compose や古いコンテナが残っていると `Conflict. The container name "/postgres_db" is already in use` になります。不要なコンテナを削除するか、`docker compose down` などで整理してから再度 `docker compose up -d` してください。
+
+### `volume ... already exists but was created for project "..."` と表示される
+
+名前付きボリュームを過去の Compose プロジェクトで作成したことが原因です。データを維持したまま使う場合は、警告のみで動作に問題がないことが多いです。本リポジトリの `docker-compose.yml` 先頭に `name: vector-search` を指定し、プロジェクト名を固定しています。
+
 ### パスワードを忘れた
 
 ```bash
